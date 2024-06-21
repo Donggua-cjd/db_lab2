@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <title>学生信息管理</title>
+</head>
+<body>
+    <h1>学生信息管理</h1>
+    <form action = "/searchstu" method = "post">
+        <label for="studentId">按姓名搜索:</label>
+        <input type="text" id="studentName" name="studentName" ><br><br>
+        <button type="submit">搜索</button>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>专业</th>
+                <th>图片</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the students data received from the backend -->
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td><img src="./static/img/{{ student[4] }}" width="100" height="100"></td>
+                <td>
+                    <form action = "/deletestu/{{ student[0] }}" method = "get">
+                        <button type = "submit">删除</button>
+                    </form>
+                </td>
+                <td>
+                    <form action = "/modifystu/{{ student[0] }}" method = "get">
+                        <button type = "submit">修改</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action = "/addstu" method = "get">
+        <button type = "submit" align = "center">添加学生</button>
+    <a href="/indexadmin">返回</a>
+</body>
+</html>

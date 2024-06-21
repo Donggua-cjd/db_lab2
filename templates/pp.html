@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <title>奖惩管理</title>
+</head>
+<body>
+    <h1>奖惩信息管理</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>奖惩编号</th>
+                <th>奖惩内容</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the pps data received from the backend -->
+            {% for pp in pps %}
+            <tr>
+                <td>{{ pp[0] }}</td>
+                <td>{{ pp[1] }}</td>
+                <td>
+                    <form action = "/deletepp/{{ pp[0] }}" method = "get">
+                        <button type = "submit">删除</button>
+                    </form>
+                </td>
+                <td>
+                    <form action = "/modifypp/{{ pp[0] }}" method = "get">
+                        <button type = "submit">修改</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action = "/addpp" method = "get">
+        <button type = "submit" align = "center">添加奖惩</button>
+    <a href="/indexadmin">返回</a>
+</body>
+</html>

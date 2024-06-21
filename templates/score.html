@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <title>成绩管理</title>
+</head>
+<body>
+    <h1>成绩管理</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>课号</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the scores data received from the backend -->
+            {% for score in scores %}
+            <tr>
+                <td>{{ score[0] }}</td>
+                <td>{{ score[1] }}</td>
+                <td>{{ score[2] }}</td>
+                <td>
+                    <!-- 删除 -->
+                    <form action="/deletescore/{{ score[0] }}/{{ score[1] }}" method="get">
+                        <button type="submit">删除</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/modifyscore/{{ score[0] }}/{{ score[1] }}" method="get">
+                        <button type="submit">修改</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action = "/addscore" method = "get">
+        <button type = "submit" align = "center">添加成绩</button>
+    <a href="/indexadmin">返回</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改奖惩情况</title>
+</head>
+<body>
+    <h1>修改奖惩情况</h1>
+    <form action = "/modifyppdate/{{sno}}/{{ppid}}" method = "post">
+        <label for="studentId">学号:</label>
+        <input type="text" id="studentId" name="studentId" value = "{{ sno }}" readonly="true"><br><br>
+        <label for="ppId">奖惩编号:</label>
+        <input type="text" id="ppId" name="ppId" value = "{{ ppid }}" readonly="true"><br><br>
+        <label for="ppDate">奖惩日期:</label>
+        <input type="text" id="ppDate" name="ppDate" ><br><br>
+        <button type="submit">提交</button>
+</html>

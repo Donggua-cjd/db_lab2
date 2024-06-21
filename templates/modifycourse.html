@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改课程</title>
+</head>
+<body>
+    <h1>修改课程</h1>
+    <form action = "/modifycourse/{{ course[0] }}" method = "post">
+        <label for="courseId">原课程号:</label>
+        <input type="text" id="courseId" name="courseId" value = "{{ course[0] }}" readonly="true"><br><br>
+        <label for="newCourseId">新课程号:</label>
+        <input type="text" id="newCourseId" name="newCourseId" value = "{{ course[0] }}"><br><br>
+        <label for="courseName">课程名:</label>
+        <input type="text" id="courseName" name="courseName" value = "{{ course[1] }}"><br><br>
+        <label for="courseCredit">学分:</label>
+        <input type="text" id="courseCredit" name="courseCredit" value = "{{ course[2] }}"><br><br>
+        <button type="submit">提交</button>
+</html>

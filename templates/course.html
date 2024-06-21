@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid black;
+        }
+    </style>
+    <title>课程信息管理</title>
+</head>
+<body>
+    <h1>课程信息管理</h1>
+    <form action = "/searchcourse" method = "post">
+        <label for="courseName">按课程名搜索:</label>
+        <input type="text" id="courseName" name="courseName" ><br><br>
+        <button type="submit">搜索</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>课程号</th>
+                <th>课程名</th>
+                <th>学分 </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through the courses data received from the backend -->
+            {% for course in courses %}
+            <tr>
+                <td>{{ course[0] }}</td>
+                <td>{{ course[1] }}</td>
+                <td>{{ course[2] }}</td>
+                <td>
+                    <form action = "/deletecourse/{{ course[0] }}" method = "get">
+                        <button type = "submit">删除</button>
+                    </form>
+                </td>
+                <td>
+                    <form action = "/modifycourse/{{ course[0] }}" method = "get">
+                        <button type = "submit">修改</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action = "/addcourse" method = "get">
+        <button type = "submit" align = "center">添加课程</button>
+    <a href="/indexadmin">返回</a>
+</body>
+</html>

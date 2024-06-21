@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改密码</title>
+</head>
+<body>
+    <h1>修改密码</h1>
+    <form action = "/changepw/{{student[0]}}" method = "post">
+        <label for="username">账户名:</label>
+        <input type="text" id="username" name="studentId" value="{{student[0]}}" readonly><br><br>
+        <label for="oldPassword">原密码:</label>
+        <input type="password" id="oldPassword" name="oldPassword"><br><br>
+        <label for="newPassword">新密码:</label>
+        <input type="password" id="newPassword" name="newPassword"><br><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

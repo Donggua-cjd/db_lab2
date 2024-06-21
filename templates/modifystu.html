@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改学生</title>
+</head>
+<body>
+    <h1>修改学生</h1>
+    <form action = "/modifystu/{{ student[0] }}" method = "post">
+        <label for="studentId">原学号:</label>
+        <input type="text" id="studentId" name="studentId" value = "{{ student[0] }}" readonly="true"><br><br>
+        <label for="newStudentId">新学号:</label>
+        <input type="text" id="newStudentId" name="newStudentId" value = "{{ student[0] }}"><br><br>
+        <label for="studentName">姓名:</label>
+        <input type="text" id="studentName" name="studentName" value = "{{ student[1] }}"><br><br>
+        <label for="studentGender">性别:</label>
+        <input type="text" id="studentGender" name="studentGender" value = "{{ student[2] }}"><br><br>
+        <label for="studentMajor">专业:</label>
+        <input type="text" id="studentMajor" name="studentMajor" value = "{{ student[3] }}"><br><br>
+        <label for="studentImage">图片:</label>
+        <input type="text" id="studentImage" name="studentImage" value = "{{ student[4] }}"><br><br>
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
